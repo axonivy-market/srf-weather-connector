@@ -3,7 +3,7 @@
   <groupId>com.axonivy.connector.srf.weather</groupId><!-- your group id: e.g. com.axonivy.connector.<myconnector> or com.axonivy.utils.<myutil> -->
   <name>srf-weather-connector</name><!-- fill your product name -->
   <artifactId>srf-weather-connector-modules</artifactId><!-- fill your product name + a "-modules" postfix -->
-  <version>11.1.0-SNAPSHOT</version><!-- identicate your minimal compliant ivy version with the first 2 digits -->
+  <version>10.0.0-SNAPSHOT</version><!-- identicate your minimal compliant ivy version with the first 2 digits -->
   <packaging>pom</packaging>
 
   <modules>

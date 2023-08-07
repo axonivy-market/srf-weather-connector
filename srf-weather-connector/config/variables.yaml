@@ -3,4 +3,9 @@
 # You can define here your project Variables.
 #
 Variables:
-#  myVariable: value
+  SrfWeatherConnector:
+    Url: https://api.srgssr.ch/srf-meteo/v2
+    #Url: http://localhost:8081/designer/api/weatherMock
+    # your srf-api token
+    # [password]
+    Token: ""

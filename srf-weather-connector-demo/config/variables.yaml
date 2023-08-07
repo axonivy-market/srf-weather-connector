@@ -3,4 +3,7 @@
 # You can define here your project Variables.
 #
 Variables:
-#  myVariable: value
+  # Variable for a successful API usage 
+  SrfWeatherConnector:
+    Token: "Bearer DIBe0LTTFqAGxCA4jGJYYhh3NVCF"
+  
