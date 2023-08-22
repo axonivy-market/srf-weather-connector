@@ -1,0 +1,76 @@
+{
+  "format" : "10.0.0",
+  "id" : "18A17804D90373B1",
+  "config" : {
+    "data" : "com.axonivy.connector.srf.weather.test.Data"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "setMockConfig.ivp",
+      "config" : {
+        "callSignature" : "setMockConfig",
+        "outLink" : "setMockConfig.ivp",
+        "showInStartList" : false
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "Script",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.axonivy.connector.srf.weather.test.ConfigManipulator;",
+            "ConfigManipulator.setMockConfig();"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "RequestStart",
+      "name" : "cleanupMockConfig.ivp",
+      "config" : {
+        "callSignature" : "cleanupMockConfig",
+        "outLink" : "cleanupMockConfig.ivp",
+        "showInStartList" : false
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 168 }
+      },
+      "connect" : { "id" : "f9", "to" : "f7" }
+    }, {
+      "id" : "f6",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 168 }
+      }
+    }, {
+      "id" : "f7",
+      "type" : "Script",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.axonivy.connector.srf.weather.test.ConfigManipulator;",
+            "ConfigManipulator.cleanupMockConfig();"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 168 }
+      },
+      "connect" : { "id" : "f8", "to" : "f6" }
+    } ]
+}

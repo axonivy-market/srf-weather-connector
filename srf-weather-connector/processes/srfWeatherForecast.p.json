@@ -1,0 +1,147 @@
+{
+  "format" : "10.0.0",
+  "id" : "18A074A7BF4A40CC",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "call(Number,String)",
+      "config" : {
+        "callSignature" : "call",
+        "input" : {
+          "params" : [
+            { "name" : "zip", "type" : "Number", "desc" : "ZIP code of the desired city for weather data retrieval" },
+            { "name" : "locationName", "type" : "String", "desc" : "City name for weather data retrieval" }
+          ],
+          "map" : {
+            "out.location.locationName" : "param.locationName",
+            "out.location.zip" : "param.zip"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "srfWeatherForecastData", "type" : "com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData" }
+          ],
+          "map" : {
+            "result.srfWeatherForecastData" : "in"
+          }
+        },
+        "tags" : "connector"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 64 },
+        "description" : [
+          "In this subprocess, the REST API of the SRF weather service is used.",
+          "First, the GeolocationID is determined based on the specified zip code or city name. ",
+          "Then, this ID is used in the second REST call to retrieve the corresponding weather forecast data. ",
+          "If no matching city is found, the weather forecast REST call is skipped and the Location not found flag is set."
+        ],
+        "icon" : "res:/webContent/icons/1.png?small"
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 592, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "RestClientCall",
+      "name" : "getGeolocation",
+      "config" : {
+        "path" : "/geolocationNames",
+        "headers" : {
+          "Accept" : "*/*",
+          "Authorization" : "ivy.var.SrfWeatherConnector_Token"
+        },
+        "clientId" : "abb4be9f-e610-498b-84db-a60dddc472ba",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "queryParams" : {
+          "limit" : "",
+          "name" : "in.location.locationName",
+          "zip" : "in.location.zip"
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
+        "responseCode" : [
+          "import ch.srgssr.api.srf.meteo.v2.client.GeolocationNamesSearch;",
+          "import com.fasterxml.jackson.databind.node.ObjectNode;",
+          "import com.fasterxml.jackson.databind.node.ObjectNode;",
+          "import com.fasterxml.jackson.databind.JsonNode;",
+          "import com.fasterxml.jackson.databind.node.ArrayNode;",
+          "",
+          "if (!result.isEmpty()) {",
+          "ArrayNode arrayNode = result as ArrayNode;",
+          "  JsonNode firstNode = arrayNode.get(0);",
+          "  ObjectNode objectNode = firstNode as ObjectNode;",
+          "  in.location.locationName = objectNode.get(\"description_short\").asText();",
+          "  ObjectNode geoNode = objectNode.get(\"geolocation\") as ObjectNode;",
+          "  in.location.geolocationId = geoNode.get(\"id\").asText();",
+          "  in.location.locationFound = true;",
+          "}"
+        ]
+      },
+      "visual" : {
+        "at" : { "x" : 208, "y" : 64 }
+      },
+      "connect" : { "id" : "f8", "to" : "f7" }
+    }, {
+      "id" : "f5",
+      "type" : "RestClientCall",
+      "name" : "getForecastPointWeekly",
+      "config" : {
+        "path" : "/forecastpoint/{geolocationId}",
+        "headers" : {
+          "Accept" : "*/*",
+          "Authorization" : "ivy.var.SrfWeatherConnector_Token"
+        },
+        "clientId" : "abb4be9f-e610-498b-84db-a60dddc472ba",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "templateParams" : {
+          "geolocationId" : "in.location.geolocationId"
+        },
+        "resultType" : "ch.srgssr.api.srf.meteo.v2.client.ForecastPointWeek",
+        "responseCode" : [
+          "in.forcastPointWeek = result;",
+          "in.day = result.days.get(0);"
+        ]
+      },
+      "visual" : {
+        "at" : { "x" : 456, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f7",
+      "type" : "Alternative",
+      "name" : "is geolocationID empty?",
+      "visual" : {
+        "at" : { "x" : 336, "y" : 64 },
+        "labelOffset" : { "x" : 14, "y" : 34 }
+      },
+      "connect" : [
+        { "id" : "f6", "to" : "f5", "condition" : "in.location.geolocationId != \"\"" },
+        { "id" : "f11", "to" : "f10", "via" : [ { "x" : 336, "y" : 144 } ] }
+      ]
+    }, {
+      "id" : "f10",
+      "type" : "Script",
+      "name" : "no location found config",
+      "config" : {
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.location.locationFound" : "false"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 456, "y" : 144 }
+      },
+      "connect" : { "id" : "f9", "to" : "f1", "via" : [ { "x" : 592, "y" : 144 } ] }
+    } ]
+}

@@ -1,0 +1,55 @@
+{
+  "format" : "10.0.0",
+  "id" : "189FE26D94E3ECBA",
+  "config" : {
+    "data" : "com.axonivy.connector.srf.weather.connector.demo.Data"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "outLink" : "start.ivp",
+        "tags" : "demo"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "DialogCall",
+      "name" : "checkWeather",
+      "config" : {
+        "dialogId" : "com.axonivy.connector.srf.weather.connector.demo.checkWeather",
+        "startMethod" : "start(String,Number)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.srfWeatherForcastData" : "result.srfWeatherForcastData"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "locationName", "type" : "String" },
+            { "name" : "zip", "type" : "Number" }
+          ],
+          "map" : {
+            "param.locationName" : "in.srfWeatherForcastData.location.locationName",
+            "param.zip" : "in.srfWeatherForcastData.location.zip"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 216, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    } ]
+}

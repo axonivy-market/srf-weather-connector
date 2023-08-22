@@ -3,4 +3,10 @@
 # You can define here your project Variables.
 #
 Variables:
-#  myVariable: value
+  # All variables related to the SRF Weather connector
+  SrfWeatherConnector:
+    # Your Access Token for SRF weather connector
+    # This token serves as your authentication key for accessing the SRF API.
+    # [password]
+    Token: "Bearer <Your Srf Weather API Token>"
+  
