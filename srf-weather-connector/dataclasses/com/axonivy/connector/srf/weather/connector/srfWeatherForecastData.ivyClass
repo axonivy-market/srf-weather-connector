@@ -1,4 +1,4 @@
-srfWeatherForecastData #class
+SrfWeatherForecastData #class
 com.axonivy.connector.srf.weather.connector #namespace
 geolocation ch.srgssr.api.srf.meteo.v2.client.GeolocationNamesSearch #field
 geolocation PERSISTENT #fieldModifier

@@ -13,7 +13,7 @@
         "callSignature" : "start",
         "result" : {
           "params" : [
-            { "name" : "srfWeatherForcastData", "type" : "com.axonivy.connector.srf.weather.connector.srfWeatherForecastData" }
+            { "name" : "srfWeatherForcastData", "type" : "com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData" }
           ],
           "map" : {
             "result.srfWeatherForcastData" : "in.srfWeatherForcastData"

@@ -1,4 +1,4 @@
-# MY-PRODUCT-NAME
+# srf-weather-connector
 
 [![CI Build](https://github.com/axonivy-market/srf-weather-connector/actions/workflows/ci.yml/badge.svg)](https://github.com/axonivy-market/srf-weather-connector/actions/workflows/ci.yml)
 

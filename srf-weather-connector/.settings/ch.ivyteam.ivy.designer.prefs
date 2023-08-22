@@ -1,4 +1,4 @@
-ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=com.axonivy.connector.srf.weather.connector.srfWeatherForecastData
+ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=com.axonivy.connector.srf.weather.connector
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:useProjectSettings=true
 ch.ivyteam.ivy.project.preferences\:PRIMEFACES_VERSION=11

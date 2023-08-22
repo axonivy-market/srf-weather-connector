@@ -22,16 +22,6 @@ public class WeatherMock {
 	static final String PATH_SUFFIX = "weatherMock";
 	// URI where this mock can be reached: to be referenced in tests that use it!
 	public static final String URI = "{ivy.app.baseurl}/api/" + PATH_SUFFIX;
-//	
-//	@GET
-//	@Path("geolocationNamesOld")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Response forecastpoint(@QueryParam("zip") int zip, @QueryParam("location") String location) throws IOException {
-//		try(InputStream is = WeatherMock.class.getResourceAsStream("json/geolocation.json")) {
-//			var json = IOUtils.toString(is, StandardCharsets.UTF_8);
-//			return Response.status(200).entity(json).build();
-//		}
-//	}
 	
 	@GET
 	@Path("geolocationNames")

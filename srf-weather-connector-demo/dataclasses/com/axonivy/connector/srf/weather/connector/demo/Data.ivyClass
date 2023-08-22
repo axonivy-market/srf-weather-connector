@@ -1,4 +1,4 @@
 Data #class
 com.axonivy.connector.srf.weather.connector.demo #namespace
-srfWeatherForcastData com.axonivy.connector.srf.weather.connector.srfWeatherForecastData #field
+srfWeatherForcastData com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData #field
 srfWeatherForcastData PERSISTENT #fieldModifier

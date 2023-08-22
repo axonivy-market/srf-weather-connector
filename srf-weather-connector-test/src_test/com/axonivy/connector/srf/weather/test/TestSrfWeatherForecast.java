@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connector.srf.weather.connector.WeatherMock;
-import com.axonivy.connector.srf.weather.connector.srfWeatherForecastData;
+import com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
@@ -29,7 +29,7 @@ class TestSrfWeatherForecast {
 	void locationAndWeatherOfZip(BpmClient bpmClient) throws NoSuchFieldException {
 		BpmElement startable = testee.elementName("call(Number,String)");
 		ExecutionResult result = bpmClient.start().subProcess(startable).execute(6300, "");
-		srfWeatherForecastData data = result.data().last();
+		SrfWeatherForecastData data = result.data().last();
 		assertThat(data.getDay().getTNC()).isEqualTo(18);
 		assertThat(data.getLocation().getLocationName()).isEqualTo("Zug");
 	}

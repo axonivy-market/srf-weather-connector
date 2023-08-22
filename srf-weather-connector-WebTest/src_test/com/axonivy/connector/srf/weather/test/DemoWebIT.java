@@ -5,37 +5,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import com.axonivy.connector.srf.weather.connector.WeatherMock;
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
 
-import ch.ivyteam.ivy.environment.AppFixture;
 
-/**
- * This sample WebTest orchestrates a real browser to verify that your workflow
- * application and especially it's Html Dialogs are running as expected.
- * 
- * <p>
- * The test can either be run
- * <ul>
- * <li>in the Designer IDE ( <code>right click > run as > JUnit Test </code>
- * )</li>
- * <li>or in a Maven continuous integration build pipeline (
- * <code>mvn clean verify</code> )</li>
- * </ul>
- * </p>
- * 
- * <p>
- * Detailed guidance on writing these kind of tests can be found in our <a href=
- * "https://developer.axonivy.com/doc/10.0/concepts/testing/web-testing.html">WebTesting
- * docs</a>
- * </p>
- */
-@IvyWebTest(headless = false)
+@IvyWebTest
 public class DemoWebIT {
 
 	@BeforeEach

@@ -3,7 +3,7 @@
   "id" : "18A074A7BF4A40CC",
   "kind" : "CALLABLE_SUB",
   "config" : {
-    "data" : "com.axonivy.connector.srf.weather.connector.srfWeatherForecastData"
+    "data" : "com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData"
   },
   "elements" : [ {
       "id" : "f0",
@@ -13,8 +13,8 @@
         "callSignature" : "call",
         "input" : {
           "params" : [
-            { "name" : "zip", "type" : "Number" },
-            { "name" : "locationName", "type" : "String" }
+            { "name" : "zip", "type" : "Number", "desc" : "ZIP code of the desired city for weather data retrieval" },
+            { "name" : "locationName", "type" : "String", "desc" : "City name for weather data retrieval" }
           ],
           "map" : {
             "out.location.locationName" : "param.locationName",
@@ -23,7 +23,7 @@
         },
         "result" : {
           "params" : [
-            { "name" : "srfWeatherForecastData", "type" : "com.axonivy.connector.srf.weather.connector.srfWeatherForecastData" }
+            { "name" : "srfWeatherForecastData", "type" : "com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData" }
           ],
           "map" : {
             "result.srfWeatherForecastData" : "in"
@@ -33,6 +33,12 @@
       },
       "visual" : {
         "at" : { "x" : 80, "y" : 64 },
+        "description" : [
+          "In this subprocess, the REST API of the SRF weather service is used.",
+          "First, the GeolocationID is determined based on the specified zip code or city name. ",
+          "Then, this ID is used in the second REST call to retrieve the corresponding weather forecast data. ",
+          "If no matching city is found, the weather forecast REST call is skipped and the Location not found flag is set."
+        ],
         "icon" : "res:/webContent/icons/1.png?small"
       },
       "connect" : { "id" : "f4", "to" : "f3" }
@@ -119,7 +125,7 @@
       },
       "connect" : [
         { "id" : "f6", "to" : "f5", "condition" : "in.location.geolocationId != \"\"" },
-        { "id" : "f11", "to" : "f10", "via" : [ { "x" : 336, "y" : 144 } ], "condition" : "in.location.geolocationId == \"\"" }
+        { "id" : "f11", "to" : "f10", "via" : [ { "x" : 336, "y" : 144 } ] }
       ]
     }, {
       "id" : "f10",
