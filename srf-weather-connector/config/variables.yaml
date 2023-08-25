@@ -6,8 +6,6 @@ Variables:
   SrfWeatherConnector:
     # The url for the SRF weather API
     Url: https://api.srgssr.ch/srf-meteo/v2
-    # For testing you can use the following Variable to refer to the testing Mock API under: 'http://localhost:8081/designer/api/weatherMock'
-    MockUrl: http://localhost:8081/designer/api/weatherMock
     # Your SRF API token
     # This token serves as your authentication key for accessing the SRF API.
     # [password]
