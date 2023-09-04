@@ -4,11 +4,11 @@ on:
   push:
   pull_request:
   schedule:
-    - cron:  '21 21 * * *'
+    - cron: "21 21 * * *"
   workflow_dispatch:
 
 jobs:
   build:
     uses: axonivy-market/github-workflows/.github/workflows/ci.yml@v2
     with:
-      mvnArgs: -Dmaven.test.failure.ignore=true
+      mvnArgs: -Dmaven.test.failure.ignore=true -Divy.engine.version=10.0.11

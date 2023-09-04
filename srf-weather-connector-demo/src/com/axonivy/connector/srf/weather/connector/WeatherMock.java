@@ -18,7 +18,6 @@ import org.apache.commons.io.IOUtils;
 @Path(WeatherMock.PATH_SUFFIX)
 @PermitAll
 public class WeatherMock {
-
 	static final String PATH_SUFFIX = "weatherMock";
 	// URI where this mock can be reached: to be referenced in tests that use it!
 	public static final String URI = "{ivy.app.baseurl}/api/" + PATH_SUFFIX;
