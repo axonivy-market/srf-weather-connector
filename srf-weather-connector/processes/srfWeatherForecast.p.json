@@ -56,7 +56,7 @@
         "path" : "/geolocationNames",
         "headers" : {
           "Accept" : "*/*",
-          "Authorization" : "ivy.var.SrfWeatherConnector_Token"
+          "Authorization" : "ivy.var.get(\"SrfWeatherConnector.Token\")"
         },
         "clientId" : "abb4be9f-e610-498b-84db-a60dddc472ba",
         "clientErrorCode" : "ivy:error:rest:client",
@@ -97,7 +97,7 @@
         "path" : "/forecastpoint/{geolocationId}",
         "headers" : {
           "Accept" : "*/*",
-          "Authorization" : "ivy.var.SrfWeatherConnector_Token"
+          "Authorization" : "ivy.var.get(\"SrfWeatherConnector.Token\")"
         },
         "clientId" : "abb4be9f-e610-498b-84db-a60dddc472ba",
         "clientErrorCode" : "ivy:error:rest:client",
