@@ -1,7 +1,6 @@
 # srf-weather-connector
 
-Axon Ivy's [SRF](https://developer.srgssr.ch/api-catalog/srf-weather) Weather data API
-connector helps you query weather forecasts
+With Axon Ivy's [SRF](https://developer.srgssr.ch/api-catalog/srf-weather) weather data API, you can integrate weather forecasts for Switzerland into your process data.
 
 The connector:
 
