@@ -5,11 +5,9 @@ connector helps you query weather forecasts
 
 The connector:
 
-* provides various weather data such as next seven day forecasts and more.
-* supports you with an easy-to-copy demo implementation to reduce your
-  integration effort.
-* enables low code citizen developers to enhance existing business processes
-  with weather forecast features.
+* provides various weather data
+* visualize the weather data as seven day forecasts
+* supports you with a demo implementation to reduce your integration effort.
 
 ## Demo
 
