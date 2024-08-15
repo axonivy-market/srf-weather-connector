@@ -6,7 +6,7 @@ connector helps you query weather forecasts
 The connector:
 
 * provides various weather data
-* visualize the weather data as seven day forecasts
+* visualize the weather data as seven day forecast
 * supports you with a demo implementation to reduce your integration effort.
 
 ## Demo
