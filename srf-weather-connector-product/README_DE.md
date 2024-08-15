@@ -1,6 +1,6 @@
 # SRF-Wetter-Konnektor
 
-Mit Axon Ivy's [SRF](https://developer.srgssr.ch/api-catalog/srf-weather) Wetterdaten API kannst Du Wettervorhersagen in Deine Prozessdaten einbinden.
+Mit Axon Ivy's [SRF](https://developer.srgssr.ch/api-catalog/srf-weather) Wetterdaten API kannst Du Wettervorhersagen der Schweiz in Deine Prozessdaten einbinden.
 
 Der Konnektor:
 
