@@ -1,12 +1,12 @@
-# srf-weather-connector
+# SRF-Wetter-Konnektor
 
-With Axon Ivy's [SRF](https://developer.srgssr.ch/api-catalog/srf-weather) weather data API, you can integrate weather forecasts for Switzerland into your process data.
+Mit Axon Ivy's [SRF](https://developer.srgssr.ch/api-catalog/srf-weather) Wetterdaten API kannst Du Wettervorhersagen der Schweiz in Deine Prozessdaten einbinden.
 
-The connector:
+Der Konnektor:
 
-* provides various weather data
-* visualize the weather data as seven day forecast
-* supports you with a demo implementation to reduce your integration effort.
+* stellt verschiedene Wetterdaten bereit
+* visualisiert die Wetterdaten als Sieben-Tage-Vorhersage
+* unterstützt dich mit einer Demo-Implementierung, um deinen Integrationsaufwand zu reduzieren.
 
 ## Demo
 
@@ -37,3 +37,4 @@ After a Bearer Token is available, you can store it in your project in the varia
 ```
 @variables.yaml@
 ```
+
