@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "18A17804D90373B1",
   "config" : {
     "data" : "com.axonivy.connector.srf.weather.test.Data"
@@ -9,14 +9,17 @@
       "type" : "RequestStart",
       "name" : "setMockConfig.ivp",
       "config" : {
-        "callSignature" : "setMockConfig",
-        "outLink" : "setMockConfig.ivp",
-        "showInStartList" : false
+        "signature" : "setMockConfig",
+        "request" : {
+          "isVisibleOnStartList" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -37,20 +40,25 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f5",
       "type" : "RequestStart",
       "name" : "cleanupMockConfig.ivp",
       "config" : {
-        "callSignature" : "cleanupMockConfig",
-        "outLink" : "cleanupMockConfig.ivp",
-        "showInStartList" : false
+        "signature" : "cleanupMockConfig",
+        "request" : {
+          "isVisibleOnStartList" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 168 }
       },
-      "connect" : { "id" : "f9", "to" : "f7" }
+      "connect" : [
+        { "id" : "f9", "to" : "f7" }
+      ]
     }, {
       "id" : "f6",
       "type" : "TaskEnd",
@@ -71,6 +79,8 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 168 }
       },
-      "connect" : { "id" : "f8", "to" : "f6" }
+      "connect" : [
+        { "id" : "f8", "to" : "f6" }
+      ]
     } ]
 }

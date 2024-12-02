@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "18A074A7BF4A40CC",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "CallSubStart",
       "name" : "call(Number,String)",
       "config" : {
-        "callSignature" : "call",
+        "signature" : "call",
         "input" : {
           "params" : [
             { "name" : "zip", "type" : "Number", "desc" : "ZIP code of the desired city for weather data retrieval" },
@@ -23,14 +23,16 @@
         },
         "result" : {
           "params" : [
-            { "name" : "srfWeatherForecastData", "type" : "com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData" }
+            { "name" : "srfWeatherForecastData", "type" : "com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData", "desc" : "" }
           ],
           "map" : {
             "result.srfWeatherForecastData" : "in"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 80, "y" : 64 },
         "description" : [
@@ -41,7 +43,9 @@
         ],
         "icon" : "res:/webContent/icons/1.png?small"
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "CallSubEnd",
@@ -53,78 +57,93 @@
       "type" : "RestClientCall",
       "name" : "getGeolocation",
       "config" : {
-        "path" : "/geolocationNames",
-        "headers" : {
-          "Accept" : "*/*",
-          "Authorization" : "ivy.var.get(\"SrfWeatherConnector.Token\")"
+        "target" : {
+          "clientId" : "abb4be9f-e610-498b-84db-a60dddc472ba",
+          "path" : "/geolocationNames",
+          "queryParams" : {
+            "limit" : "",
+            "name" : "in.location.locationName",
+            "zip" : "in.location.zip"
+          },
+          "headers" : {
+            "Authorization" : "ivy.var.get(\"SrfWeatherConnector.Token\")"
+          }
         },
-        "clientId" : "abb4be9f-e610-498b-84db-a60dddc472ba",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "queryParams" : {
-          "limit" : "",
-          "name" : "in.location.locationName",
-          "zip" : "in.location.zip"
-        },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
-        "responseCode" : [
-          "import ch.srgssr.api.srf.meteo.v2.client.GeolocationNamesSearch;",
-          "import com.fasterxml.jackson.databind.node.ObjectNode;",
-          "import com.fasterxml.jackson.databind.node.ObjectNode;",
-          "import com.fasterxml.jackson.databind.JsonNode;",
-          "import com.fasterxml.jackson.databind.node.ArrayNode;",
-          "",
-          "if (!result.isEmpty()) {",
-          "ArrayNode arrayNode = result as ArrayNode;",
-          "  JsonNode firstNode = arrayNode.get(0);",
-          "  ObjectNode objectNode = firstNode as ObjectNode;",
-          "  in.location.locationName = objectNode.get(\"description_short\").asText();",
-          "  ObjectNode geoNode = objectNode.get(\"geolocation\") as ObjectNode;",
-          "  in.location.geolocationId = geoNode.get(\"id\").asText();",
-          "  in.location.locationFound = true;",
-          "}"
-        ]
+        "response" : {
+          "entity" : {
+            "type" : "com.fasterxml.jackson.databind.JsonNode",
+            "code" : [
+              "import ch.srgssr.api.srf.meteo.v2.client.GeolocationNamesSearch;",
+              "import com.fasterxml.jackson.databind.node.ObjectNode;",
+              "import com.fasterxml.jackson.databind.node.ObjectNode;",
+              "import com.fasterxml.jackson.databind.JsonNode;",
+              "import com.fasterxml.jackson.databind.node.ArrayNode;",
+              "",
+              "if (!result.isEmpty()) {",
+              "ArrayNode arrayNode = result as ArrayNode;",
+              "  JsonNode firstNode = arrayNode.get(0);",
+              "  ObjectNode objectNode = firstNode as ObjectNode;",
+              "  in.location.locationName = objectNode.get(\"description_short\").asText();",
+              "  ObjectNode geoNode = objectNode.get(\"geolocation\") as ObjectNode;",
+              "  in.location.geolocationId = geoNode.get(\"id\").asText();",
+              "  in.location.locationFound = true;",
+              "}"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 208, "y" : 64 }
       },
-      "connect" : { "id" : "f8", "to" : "f7" }
+      "connect" : [
+        { "id" : "f8", "to" : "f7" }
+      ]
     }, {
       "id" : "f5",
       "type" : "RestClientCall",
       "name" : "getForecastPointWeekly",
       "config" : {
-        "path" : "/forecastpoint/{geolocationId}",
-        "headers" : {
-          "Accept" : "*/*",
-          "Authorization" : "ivy.var.get(\"SrfWeatherConnector.Token\")"
+        "target" : {
+          "clientId" : "abb4be9f-e610-498b-84db-a60dddc472ba",
+          "path" : "/forecastpoint/{geolocationId}",
+          "templateParams" : {
+            "geolocationId" : "in.location.geolocationId"
+          },
+          "headers" : {
+            "Authorization" : "ivy.var.get(\"SrfWeatherConnector.Token\")"
+          }
         },
-        "clientId" : "abb4be9f-e610-498b-84db-a60dddc472ba",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "templateParams" : {
-          "geolocationId" : "in.location.geolocationId"
-        },
-        "resultType" : "ch.srgssr.api.srf.meteo.v2.client.ForecastPointWeek",
-        "responseCode" : [
-          "in.forcastPointWeek = result;",
-          "in.day = result.days.get(0);"
-        ]
+        "response" : {
+          "entity" : {
+            "type" : "ch.srgssr.api.srf.meteo.v2.client.ForecastPointWeek",
+            "code" : [
+              "in.forcastPointWeek = result;",
+              "in.day = result.days.get(0);"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 456, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f7",
       "type" : "Alternative",
       "name" : "is geolocationID empty?",
+      "config" : {
+        "conditions" : {
+          "f6" : "in.location.geolocationId != \"\""
+        }
+      },
       "visual" : {
         "at" : { "x" : 336, "y" : 64 },
         "labelOffset" : { "x" : 14, "y" : 34 }
       },
       "connect" : [
-        { "id" : "f6", "to" : "f5", "condition" : "in.location.geolocationId != \"\"" },
+        { "id" : "f6", "to" : "f5" },
         { "id" : "f11", "to" : "f10", "via" : [ { "x" : 336, "y" : 144 } ] }
       ]
     }, {
@@ -142,6 +161,8 @@
       "visual" : {
         "at" : { "x" : 456, "y" : 144 }
       },
-      "connect" : { "id" : "f9", "to" : "f1", "via" : [ { "x" : 592, "y" : 144 } ] }
+      "connect" : [
+        { "id" : "f9", "to" : "f1", "via" : [ { "x" : 592, "y" : 144 } ] }
+      ]
     } ]
 }

@@ -1,0 +1,23 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "SrfWeatherForecastData",
+  "namespace" : "com.axonivy.connector.srf.weather.connector",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "geolocation",
+    "type" : "ch.srgssr.api.srf.meteo.v2.client.GeolocationNamesSearch",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "forcastPointWeek",
+    "type" : "ch.srgssr.api.srf.meteo.v2.client.ForecastPointWeek",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "day",
+    "type" : "ch.srgssr.api.srf.meteo.v2.client.DayForecastInterval",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "location",
+    "type" : "com.axonivy.connector.srf.weather.connector.Location",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}
