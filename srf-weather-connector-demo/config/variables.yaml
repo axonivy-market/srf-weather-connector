@@ -4,12 +4,3 @@
 # You can define here your project Variables.
 #
 Variables:
-  # All variables related to the SRF Weather connector
-  SrfWeatherConnector:
-    # For testing you can use the following Variable to refer to the testing Mock API under: 'http://localhost:8081/designer/api/weatherMock'
-    # Url: http://localhost:8081/designer/api/weatherMock
-
-        # Your Access Token for SRF weather connector
-    # This token serves as your authentication key for accessing the SRF API.
-    # [password]
-    Token: "Bearer <Your Srf Weather API Token>"
