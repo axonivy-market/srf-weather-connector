@@ -33,7 +33,6 @@
 			<groupId>com.axonivy.ivy.test</groupId>
 			<artifactId>unit-tester</artifactId>
 			<version>${tester.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.axonivy.connector.srf.weather</groupId>
@@ -57,6 +56,16 @@
 					<version>3.0.0-M1</version>
 					<configuration>
 						<skip>true</skip>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.0.0-M5</version>
+					<configuration>
+						<systemPropertyVariables>
+							<url>${srfweather.url}</url>
+							<token>${srfweather.token}</token>
+						</systemPropertyVariables>
 					</configuration>
 				</plugin>
 			</plugins>
