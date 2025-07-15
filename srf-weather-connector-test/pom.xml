@@ -78,6 +78,16 @@
             <skip>true</skip>
           </configuration>
         </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M5</version>
+          <configuration>
+            <systemPropertyVariables>
+              <url>${srfweather.url}</url>
+              <token>${srfweather.token}</token>
+            </systemPropertyVariables>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
