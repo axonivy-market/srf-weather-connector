@@ -3,9 +3,13 @@ package com.axonivy.connector.srf.weather.test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.ExtensionContext;
 
-import com.axonivy.connector.srf.weather.connector.WeatherMock;
+import com.axonivy.connector.srf.weather.test.constant.SrfWeatherConnectorConstant;
+import com.axonivy.connector.srf.weather.test.context.MultiEnvironmentContextProvider;
+import com.axonivy.connector.srf.weather.test.utils.SrfWeatherConnectorUtils;
 import com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
@@ -16,21 +20,26 @@ import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 import ch.ivyteam.ivy.environment.AppFixture;
 
 @IvyProcessTest(enableWebServer = true)
+@ExtendWith(MultiEnvironmentContextProvider.class)
 class TestSrfWeatherForecast {
 
 	private static final BpmProcess testee = BpmProcess.path("srfWeatherForecast");
 
 	@BeforeEach
-	void beforeEach(AppFixture fixture) {
-		fixture.config("RestClients.'srfweatherService (SRF Weather)'.Url", WeatherMock.URI);
+	void beforeEach(ExtensionContext context, AppFixture fixture) {
+		SrfWeatherConnectorUtils.setUpConfigForContext(context.getDisplayName(), fixture);
 	}
 
-	@Test
-	void locationAndWeatherOfZip(BpmClient bpmClient) throws NoSuchFieldException {
+	@TestTemplate
+	void locationAndWeatherOfZip(ExtensionContext context, BpmClient bpmClient) throws NoSuchFieldException {
 		BpmElement startable = testee.elementName("call(Number,String)");
-		ExecutionResult result = bpmClient.start().subProcess(startable).execute(6300, "");
+		ExecutionResult result = bpmClient.start().subProcess(startable).execute(6300, "Zug");
 		SrfWeatherForecastData data = result.data().last();
-		assertThat(data.getDay().getTNC()).isEqualTo(18);
+		if (context.getDisplayName().equals(SrfWeatherConnectorConstant.MOCK_SERVER_CONTEXT_DISPLAY_NAME)) {
+			assertThat(data.getDay().getTNC()).isEqualTo(18);
+		} else {
+			assertThat(data.getLocation().getZip()).isEqualTo(6300);
+		}
 		assertThat(data.getLocation().getLocationName()).isEqualTo("Zug");
 	}
 }
