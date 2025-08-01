@@ -84,6 +84,7 @@
             <systemPropertyVariables>
               <url>${srfweather.url}</url>
               <token>${srfweather.token}</token>
+              <testEnvironment>${testEnvironment}</testEnvironment>
             </systemPropertyVariables>
             <statelessTestsetReporter
               implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
