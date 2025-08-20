@@ -15,14 +15,14 @@
   <packaging>iar</packaging>
   <dependencies>
     <dependency>
-      <groupId>com.axonivy.ivy.test</groupId>
-      <artifactId>unit-tester</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>com.axonivy.utils.e2etest</groupId>
       <artifactId>e2e-test-utils</artifactId>
       <version>[1.0.0,)</version>
+    </dependency>
+    <dependency>
+      <groupId>com.axonivy.ivy.test</groupId>
+      <artifactId>unit-tester</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.axonivy.connector.srf.weather</groupId>
