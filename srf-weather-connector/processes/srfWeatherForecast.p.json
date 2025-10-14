@@ -34,7 +34,7 @@
         "connector"
       ],
       "visual" : {
-        "at" : { "x" : 80, "y" : 64 },
+        "at" : { "x" : 16, "y" : 64 },
         "description" : [
           "In this subprocess, the REST API of the SRF weather service is used.",
           "First, the GeolocationID is determined based on the specified zip code or city name. ",
@@ -93,8 +93,27 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 208, "y" : 64 }
+        "at" : { "x" : 160, "y" : 64 },
+        "size" : { "width" : 128 }
       },
+      "boundaries" : [ {
+          "id" : "f12",
+          "type" : "ErrorBoundaryEvent",
+          "config" : {
+            "output" : {
+              "map" : {
+                "out" : "in",
+                "out.error" : "#error"
+              }
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 208, "y" : 34 }
+          },
+          "connect" : [
+            { "id" : "f13", "to" : "f1", "via" : [ { "x" : 208, "y" : -16 }, { "x" : 592, "y" : -16 } ] }
+          ]
+        } ],
       "connect" : [
         { "id" : "f8", "to" : "f7" }
       ]
@@ -124,8 +143,27 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 456, "y" : 64 }
+        "at" : { "x" : 464, "y" : 64 },
+        "size" : { "width" : 168, "height" : 62 }
       },
+      "boundaries" : [ {
+          "id" : "f14",
+          "type" : "ErrorBoundaryEvent",
+          "config" : {
+            "output" : {
+              "map" : {
+                "out" : "in",
+                "out.error" : "#error"
+              }
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 524, "y" : 23 }
+          },
+          "connect" : [
+            { "id" : "f15", "to" : "f1", "via" : [ { "x" : 592, "y" : 24 } ] }
+          ]
+        } ],
       "connect" : [
         { "id" : "f2", "to" : "f1" }
       ]
@@ -139,12 +177,12 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 336, "y" : 64 },
+        "at" : { "x" : 296, "y" : 64 },
         "labelOffset" : { "x" : 14, "y" : 34 }
       },
       "connect" : [
         { "id" : "f6", "to" : "f5" },
-        { "id" : "f11", "to" : "f10", "via" : [ { "x" : 336, "y" : 144 } ] }
+        { "id" : "f11", "to" : "f10", "via" : [ { "x" : 296, "y" : 144 } ] }
       ]
     }, {
       "id" : "f10",
@@ -159,7 +197,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 456, "y" : 144 }
+        "at" : { "x" : 408, "y" : 144 }
       },
       "connect" : [
         { "id" : "f9", "to" : "f1", "via" : [ { "x" : 592, "y" : 144 } ] }
