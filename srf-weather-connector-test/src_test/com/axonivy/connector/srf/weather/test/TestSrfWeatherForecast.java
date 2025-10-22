@@ -43,7 +43,7 @@ class TestSrfWeatherForecast {
     ExecutionResult result = bpmClient.start().subProcess(startable).execute(6300, "Zug");
     SrfWeatherForecastData data = result.data().last();
     if (context.getDisplayName().equals(REAL_SERVER.getDisplayName())) {
-      boolean responsedData = Optional.ofNullable(data)
+      boolean isResponseValid = Optional.ofNullable(data)
           .map(SrfWeatherForecastData::getDay)
           .map(DayForecastInterval::getTNC)
           .map(tnc -> tnc.equals(9))
@@ -54,7 +54,7 @@ class TestSrfWeatherForecast {
           .map(code -> code.equals(401))
           .orElse(false);
 
-      assertTrue(responsedData || isUnauthorized);
+      assertTrue(isResponseValid || isUnauthorized);
     } else {
       assertThat(data.getLocation().getZip()).isEqualTo(6300);
       assertThat(data.getLocation().getLocationName()).isEqualTo("Zug");
