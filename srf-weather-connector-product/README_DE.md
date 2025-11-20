@@ -1,59 +1,58 @@
-# srf-Wetter-Anschluss
+# srf-weather-connector
 
-Mit #Axon Efeus [SRF](https://developer.srgssr.ch/api-catalog/srf-weather)
-verwitter #Daten API, du kannst Wetterberichte für #Schweiz integrieren hinein
-#eure Arbeitsgang #Daten.
+Mit der Wetterdaten-API
+[SRF](https://developer.srgssr.ch/api-catalog/srf-weather) von Axon Ivy können
+Sie Wettervorhersagen für die Schweiz in Ihre Prozessdaten integrieren.
 
-Der Anschluss:
+Der Konnektor:
 
-* Versieht #verschiedene Wetter #Daten
-* Veranschaulich #der Wetter #Daten da sieben Tag Prognose
-* Unterstützt du mit eine Demo Ausführung zu heruntersetzen eure Integration
-  Anstrengung.
+* liefert verschiedene Wetterdaten
+* Visualisieren Sie die Wetterdaten als Sieben-Tage-Vorhersage.
+* unterstützt Sie mit einer Demo-Implementierung, um Ihren Integrationsaufwand
+  zu reduzieren.
 
 ## Demo
 
-Installier das SRF Wetter Anschluss und rufen ihm da einen Ersatz-verarbeite.
-Pass an demzufolge die Vermessung. ![Apparat Anschluss da
-subprocess](images/demo1.png)
+Installieren Sie den SRF Weather Connector und rufen Sie ihn als Unterprozess
+auf. Passen Sie die Zuordnung entsprechend an. ![Connector als Unterprozess
+festlegen](images/demo1.png)
 
-Für testen Zwecke, #ein spotten API können sein benutzt in der Demo statt das
-offizielles SRF API. Für diesen Zweck, das variables "Url" kann sein kommentiert
-aus unter 'Variablen.SrfWeatherConnectors. Hier kannst du vermeiden die
-Notwendigkeit zu generieren eine Zugang Automatenmünze via die SRF Entwickler
-Website zuerst. In dies spottet Verfahren, nur der REIßVERSCHLUSS Code "6300"
-muss sein betreten in das "Reißverschluss" Feld.
+Zu Testzwecken kann in der Demo anstelle der offiziellen SRF-API eine Mock-API
+verwendet werden. Zu diesem Zweck kann die Variable „Url” unter
+„Variables.SrfWeatherConnector” auskommentiert werden. Auf diese Weise können
+Sie vermeiden, dass Sie zunächst über die SRF-Entwickler-Website einen
+Zugriffstoken generieren müssen. In diesem Mock-Modus muss nur die Postleitzahl
+„6300” in das Feld „zip” eingegeben werden.
 
-In der Demo, du kannst jetzt präzisieren #jeder den Namen von dem Drehort oder
-seinen REIßVERSCHLUSS Code und benutzen den "Bekommen Wetter" Knopf zu ausgeben
-das Wetter für das nächstes sieben Tage an diesem Drehort. ![Betritt #Daten
-Namen oder Reißverschluss](images/demo2.png)
+In der Demo können Sie nun entweder den Namen des Ortes oder dessen Postleitzahl
+angeben und mit der Schaltfläche „Wetter abrufen“ das Wetter für die nächsten
+sieben Tage an diesem Ort anzeigen lassen. ![Datenname oder Postleitzahl
+eingeben](images/demo2.png)
 
-Ob der Drehort ist gültig, die #entsprechend Ausgabe #aussehen dies:
-![Endgültige Ausgabe](images/demo3.png)
+Wenn der Speicherort gültig ist, sieht die entsprechende Ausgabe wie folgt aus:
+![endgültige Ausgabe](images/demo3.png)
 
 ## Einrichtung
 
-Die Nutzung von die SRF Wetter API ist nicht gratis. Für Entwicklung Zwecke sind
-dort eine freie Version mit minimal API Anrufe. Zu benutzen den Anschluss, du
-müssen ein passendes auswählen API Päckchen via das [SRF API Entwickler
-Website](https://developer.srgssr.ch/api-catalog/srf-weather) und generieren
-eine "Inhaber Automatenmünze". Dies ist beschrieben in den folgenden Weisungen:
-[SRF
-Weisung](https://developer.srgssr.ch/getting-started/easy-description-get-accesstoken)
+Die Nutzung der SRF Weather API ist nicht kostenlos. Für Entwicklungszwecke gibt
+es eine kostenlose Version mit minimalen API-Aufrufen. Um den Konnektor nutzen
+zu können, müssen Sie über die [SRF API Developer
+Website](https://developer.srgssr.ch/api-catalog/srf-weather) ein passendes
+API-Paket auswählen und ein „Bearer Token” generieren. Dies wird in der
+folgenden Anleitung beschrieben: [SRF
+Anleitung](https://developer.srgssr.ch/getting-started/easy-description-get-accesstoken)
 
-Nach eine Inhaber Automatenmünze ist verfügbar, du kannst lagern es in eurem
-Projekt in den Variablen.yaml Da das variables
-"srfWeatherConnector.Automatenmünze" (da du kannst in der Demo sehen).
-1. Melde an weiter ein Konto
-   [Entwickler.srgssr.ch/](https://developer.srgssr.ch/).
-2. Einmal #loggen herein, Klick #App auf dem #oberste #Rechter und zufügen ein
-   neues #App mit das "+ ZUFÜGEN #APP" Knopf.
-3. Nach dem #App ist geschafft, du willst einen Konsumenten Schlüssel und
-   Konsumenten Geheimnis empfangen mit #welche du kannst die Inhaber
-   Automatenmünze generieren.
-4. Lager das API-Schlüssel/Automatenmünze in euren Variablen.yaml Unter
-   `Variablen.SrfWeatherConnector.Automatenmünze`
+Sobald ein Bearer Token verfügbar ist, können Sie es in Ihrem Projekt in der
+Datei variables.yaml als Variable „srfWeatherConnector.Token” speichern (wie in
+der Demo zu sehen).
+1. Registrieren Sie ein Konto auf
+   [developer.srgssr.ch/](https://developer.srgssr.ch/).
+2. Sobald Sie angemeldet sind, klicken Sie oben rechts auf „Apps” und fügen Sie
+   mit der Schaltfläche „+ APP HINZUFÜGEN” eine neue App hinzu.
+3. Nachdem die App erstellt wurde, erhalten Sie einen Consumer Key und einen
+   Consumer Secret, mit denen Sie das Bearer Token generieren können.
+4. Speichern Sie den API-Schlüssel/Token in Ihrer Datei „variables.yaml” unter „
+   `Variables.SrfWeatherConnector.Token”.`
 
 ```
 @variables.yaml@
