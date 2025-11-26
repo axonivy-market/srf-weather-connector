@@ -32,7 +32,7 @@ eingeben](images/demo2.png)
 Wenn der Speicherort gültig ist, sieht die entsprechende Ausgabe wie folgt aus:
 ![endgültige Ausgabe](images/demo3.png)
 
-## Einrichtung
+## Setup
 
 Die Nutzung der SRF Weather API ist nicht kostenlos. Für Entwicklungszwecke gibt
 es eine kostenlose Version mit minimalen API-Aufrufen. Um den Konnektor nutzen
