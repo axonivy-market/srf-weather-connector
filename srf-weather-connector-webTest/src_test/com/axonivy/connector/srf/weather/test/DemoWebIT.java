@@ -8,29 +8,31 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import com.axonivy.connector.srf.weather.connector.WeatherMock;
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
-import static com.axonivy.ivy.webtest.engine.EngineUrl.isDesigner;
+import com.axonivy.ivy.webtest.engine.WebAppFixture;
+
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
 @IvyWebTest
 public class DemoWebIT {
+
+    private static final String MOCK_REST_CONFIG = "RestClients.'srfweatherService (SRF Weather)'.Url";
 
 	public static void assertCurrentUrlContains(String contains) {
 		webdriver().shouldHave(urlContaining(contains));
 	}
 
 	@BeforeEach
-	void beforeEach() {
-		open(EngineUrl.createProcessUrl("srf-weather-connector-webTest/18A17804D90373B1/setMockConfig.ivp"));
-		assertCurrentUrlContains(isDesigner() ? "/default-workflow/faces" : "end");
+	void beforeEach(WebAppFixture fixture) {
+		fixture.config(MOCK_REST_CONFIG, WeatherMock.URI);
 		open(EngineUrl.createProcessUrl("srf-weather-connector-demo/189FE26D94E3ECBA/start.ivp"));
 	}
 
 	@AfterEach
-	void afterEach() {
-		open(EngineUrl.createProcessUrl("srf-weather-connector-webTest/18A17804D90373B1/cleanupMockConfig.ivp"));
-
+	void afterEach(WebAppFixture fixture) {
+		fixture.resetConfig(MOCK_REST_CONFIG);
 	}
 
 	@Test
