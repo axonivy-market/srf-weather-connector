@@ -1,1 +1,1 @@
-Forcast, forcast, Keine, Daten, verfügbar, RRRMM, PROBPCPPERCENT, SUNH, Meteo
+Forcast, forcast, Keine, Daten, verfügbar, RRRMM, PROBPCPPERCENT, SUNH, Meteo, srgssr
