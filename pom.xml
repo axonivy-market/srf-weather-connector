@@ -3,7 +3,7 @@
   <groupId>com.axonivy.connector.srf.weather</groupId>
   <name>srf-weather-connector</name>
   <artifactId>srf-weather-connector-modules</artifactId>
-  <version>13.2.0</version>
+  <version>13.2.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,7 +19,7 @@
 
   <scm>
     <developerConnection>scm:git:https://github.com/axonivy-market/srf-weather-connector.git</developerConnection>
-    <tag>v13.2.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <build>
