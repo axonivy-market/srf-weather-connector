@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/13.1.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
   "id" : "18A074A7BF4A40CC",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -41,7 +41,7 @@
           "Then, this ID is used in the second REST call to retrieve the corresponding weather forecast data. ",
           "If no matching city is found, the weather forecast REST call is skipped and the Location not found flag is set."
         ],
-        "icon" : "res:/webContent/icons/1.png?small"
+        "icon" : "res:/webContent/icons/1.png"
       },
       "connect" : [
         { "id" : "f4", "to" : "f3" }
