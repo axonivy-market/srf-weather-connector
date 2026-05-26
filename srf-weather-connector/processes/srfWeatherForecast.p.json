@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/process.json",
   "id" : "18A074A7BF4A40CC",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -58,7 +58,7 @@
       "name" : "getGeolocation",
       "config" : {
         "target" : {
-          "clientId" : "abb4be9f-e610-498b-84db-a60dddc472ba",
+          "clientId" : "srfweatherService-SRF-Weather",
           "path" : "/geolocationNames",
           "queryParams" : {
             "limit" : "",
@@ -123,7 +123,7 @@
       "name" : "getForecastPointWeekly",
       "config" : {
         "target" : {
-          "clientId" : "abb4be9f-e610-498b-84db-a60dddc472ba",
+          "clientId" : "srfweatherService-SRF-Weather",
           "path" : "/forecastpoint/{geolocationId}",
           "templateParams" : {
             "geolocationId" : "in.location.geolocationId"

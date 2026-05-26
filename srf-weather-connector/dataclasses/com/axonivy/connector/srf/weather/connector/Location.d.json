@@ -1,23 +1,16 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "Location",
   "namespace" : "com.axonivy.connector.srf.weather.connector",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "zip",
-    "type" : "Number",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "Number"
   }, {
-    "name" : "geolocationId",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "name" : "geolocationId"
   }, {
-    "name" : "locationName",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "name" : "locationName"
   }, {
     "name" : "locationFound",
-    "type" : "Boolean",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "Boolean"
   } ]
 }

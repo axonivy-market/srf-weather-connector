@@ -1,27 +1,21 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/13.1.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "SrfWeatherForecastData",
   "namespace" : "com.axonivy.connector.srf.weather.connector",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "geolocation",
-    "type" : "ch.srgssr.api.srf.meteo.v2.client.GeolocationNamesSearch",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "ch.srgssr.api.srf.meteo.v2.client.GeolocationNamesSearch"
   }, {
     "name" : "forcastPointWeek",
-    "type" : "ch.srgssr.api.srf.meteo.v2.client.ForecastPointWeek",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "ch.srgssr.api.srf.meteo.v2.client.ForecastPointWeek"
   }, {
     "name" : "day",
-    "type" : "ch.srgssr.api.srf.meteo.v2.client.DayForecastInterval",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "ch.srgssr.api.srf.meteo.v2.client.DayForecastInterval"
   }, {
     "name" : "location",
-    "type" : "com.axonivy.connector.srf.weather.connector.Location",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connector.srf.weather.connector.Location"
   }, {
     "name" : "error",
-    "type" : "ch.ivyteam.ivy.bpm.error.BpmError",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
   } ]
 }
