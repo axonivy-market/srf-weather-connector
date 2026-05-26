@@ -1,10 +1,12 @@
+# yaml-language-server: $schema=https://json-schema.axonivy.com/14.0-dev/config/rest-clients-1.json
 RestClients:
   #SRF Meteo serves weather forecast for over 100'000 locations within Switzerland
-  srfweatherService (SRF Weather):
-    UUID: abb4be9f-e610-498b-84db-a60dddc472ba
+  srfweatherService-SRF-Weather:
+    Name: srfweatherService (SRF Weather)
     Url: ${ivy.var.SrfWeatherConnector.Url}
     Features:
-    - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
+      - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
     OpenAPI:
       SpecUrl: file:///C:/Users/zugPcEdp/Downloads/swagger_srf_weather_v2_0_0.yaml
       Namespace: ch.srgssr.api.srf.meteo.v2.client
+    LegacyUUID: abb4be9f-e610-498b-84db-a60dddc472ba
