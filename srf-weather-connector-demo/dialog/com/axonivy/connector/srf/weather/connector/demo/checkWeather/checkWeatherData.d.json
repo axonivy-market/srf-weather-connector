@@ -4,6 +4,7 @@
   "namespace" : "com.axonivy.connector.srf.weather.connector.demo.checkWeather",
   "fields" : [ {
     "name" : "srfWeatherForcastData",
-    "type" : "com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData"
+    "type" : "com.axonivy.connector.srf.weather.connector.SrfWeatherForecastData",
+    "modifiers" : [ ]
   } ]
 }
