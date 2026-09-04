@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/process.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/process-2.json",
   "id" : "18A074A7BF4A40CC",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -71,12 +71,12 @@
         },
         "response" : {
           "entity" : {
-            "type" : "com.fasterxml.jackson.databind.JsonNode",
+            "type" : "tools.jackson.databind.JsonNode",
             "code" : [
               "import ch.srgssr.api.srf.meteo.v2.client.GeolocationNamesSearch;",
               "import com.fasterxml.jackson.databind.node.ObjectNode;",
               "import com.fasterxml.jackson.databind.node.ObjectNode;",
-              "import com.fasterxml.jackson.databind.JsonNode;",
+              "import tools.jackson.databind.JsonNode;",
               "import com.fasterxml.jackson.databind.node.ArrayNode;",
               "",
               "if (!result.isEmpty()) {",
