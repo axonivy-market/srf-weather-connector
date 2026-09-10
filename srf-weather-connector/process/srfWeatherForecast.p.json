@@ -74,10 +74,9 @@
             "type" : "tools.jackson.databind.JsonNode",
             "code" : [
               "import ch.srgssr.api.srf.meteo.v2.client.GeolocationNamesSearch;",
-              "import com.fasterxml.jackson.databind.node.ObjectNode;",
-              "import com.fasterxml.jackson.databind.node.ObjectNode;",
+              "import tools.jackson.databind.node.ObjectNode;",
+              "import tools.jackson.databind.node.ArrayNode;",
               "import tools.jackson.databind.JsonNode;",
-              "import com.fasterxml.jackson.databind.node.ArrayNode;",
               "",
               "if (!result.isEmpty()) {",
               "ArrayNode arrayNode = result as ArrayNode;",
