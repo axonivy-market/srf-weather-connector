@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://json-schema.axonivy.com/14.0-dev/config/rest-clients-1.json
+# yaml-language-server: $schema=https://json-schema.axonivy.com/14.0-dev/config/rest-clients-2.json
 RestClients:
   #SRF Meteo serves weather forecast for over 100'000 locations within Switzerland
   srfweatherService-SRF-Weather:
